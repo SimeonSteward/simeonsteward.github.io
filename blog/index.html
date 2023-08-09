@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Simeon Steward</title>
+		<meta name="description" content="Simple Portfolio website to show off my projects">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Simeon Steward">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Simeon Steward">
+		
+		<style>.postlist { counter-reset: start-from 5 }
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BCC4DB;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #292929;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #bcc4db;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #bcc4db;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #786CB2;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #786CB2;
+
+		--background-color: #292929;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+.nav-item a.icon {
+  margin-left: 10px; 
+	padding: 10px; 
+}
+
+.nav-item a.icon:first-child {
+  margin-left: 0;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Simeon Steward</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/" aria-current="page">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About Me</a></li>
+				<a href="https://github.com/SimeonSteward" style="padding: 5px">
+				  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   enable-background="new 0 0 512 512"
+   id="Layer_1"
+   version="1.1"
+   viewBox="0 0 512 512"
+   xml:space="preserve"
+   sodipodi:docname="github.svg"
+   width="48"
+   height="48"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs13" /><sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="13"
+     inkscape:cx="36.538462"
+     inkscape:cy="14.884615"
+     inkscape:window-width="1920"
+     inkscape:window-height="1010"
+     inkscape:window-x="-7"
+     inkscape:window-y="-7"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" /><g
+     id="g8"><circle
+       cx="256"
+       cy="256"
+       fill="#333333"
+       r="256"
+       id="circle2" /><g
+       id="g6"><path
+         d="m 256,93.9 c -89.5,0 -162.1,72.6 -162.1,162.1 0,70.5 45,130.4 107.8,152.8 0.3,0.1 1.4,0.5 1.7,0.6 0.9,0.3 1.9,0.5 2.9,0.5 5.3,0 9.5,-4.3 9.5,-9.5 0,-0.3 0,-0.5 0,-0.8 v 0 c 0,-8.6 0,-19.5 0,-28.2 -10.3,2.1 -25.9,4.1 -34.4,0 -11,-5.3 -16.6,-12.1 -21.9,-25.5 -6.6,-16.3 -21.8,-20.8 -22.4,-23.6 -0.6,-2.9 16.1,-7.2 24.7,2.7 8.6,9.9 17.3,29.7 35.8,27.8 9.1,-0.9 15,-2.4 18.7,-3.5 0.7,-6.4 2.8,-14.3 8.1,-19.9 -43.5,-7.2 -72.5,-30.6 -72.5,-76.5 0,-20.9 6,-37.1 16.6,-49.2 -1.8,-10 -4.8,-33.2 3.2,-41.3 0,0 11.3,-7 43.7,15.8 12.1,-2.8 25.5,-4.2 39.8,-4.2 v 0 c 0.3,0 0.5,0 0.8,0 0.3,0 0.5,0 0.8,0 v 0 c 14.4,0.1 27.8,1.5 39.8,4.2 32.4,-22.8 43.7,-15.8 43.7,-15.8 8,8.2 5,31.4 3.2,41.3 10.6,12.2 16.6,28.4 16.6,49.2 0,45.9 -28.9,69.3 -72.5,76.5 8.3,8.7 8.6,22.8 8.6,28.6 0,5.5 0,42.3 0,42.5 0,5.3 4.3,9.5 9.5,9.5 0.8,0 1.5,-0.1 2.3,-0.3 0.2,0 0.8,-0.2 1,-0.3 63.5,-22 109.1,-82.3 109.1,-153.3 C 418.1,166.4 345.5,93.9 256,93.9 Z"
+         fill="#ffffff"
+         id="path4" /></g></g></svg>
+
+				</a>
+				<a href="https://linkedin.com/in/simeonsteward" style="padding: 5px">
+				  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24Z" fill="#0077B5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.3188 14.8227C17.3188 16.3918 16.1377 17.6473 14.2412 17.6473H14.2064C12.3805 17.6473 11.2 16.3918 11.2 14.8227C11.2 13.2204 12.4164 12 14.277 12C16.1377 12 17.2835 13.2204 17.3188 14.8227ZM16.9605 19.8778V36.2196H11.5216V19.8778H16.9605ZM36.5752 36.2196L36.5754 26.8497C36.5754 21.8303 33.8922 19.4941 30.3131 19.4941C27.4254 19.4941 26.1325 21.0802 25.4107 22.1929V19.8783H19.9711C20.0428 21.4117 19.9711 36.22 19.9711 36.22H25.4107V27.0934C25.4107 26.605 25.446 26.1178 25.5898 25.7681C25.9829 24.7924 26.8779 23.7822 28.3805 23.7822C30.3494 23.7822 31.1365 25.2807 31.1365 27.4767V36.2196H36.5752Z" fill="white"/>
+</svg>
+
+				</a>
+				</ul>
+				
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Archive</h1>
+
+
+
+<ol reversed class="postlist">
+
+	<li class="postlist-item">
+		<a href="/blog/rip_protocol/" class="postlist-link">RIP Protocol Project</a>
+		<time class="postlist-date" datetime="2023-09-08">September 2023</time>
+	</li>
+
+	<li class="postlist-item">
+		<a href="/blog/thirdpost/" class="postlist-link">This is my third post.</a>
+		<time class="postlist-date" datetime="2018-08-24">August 2018</time>
+	</li>
+
+	<li class="postlist-item">
+		<a href="/blog/secondpost/" class="postlist-link">This is my second post with a much longer title.</a>
+		<time class="postlist-date" datetime="2018-07-04">July 2018</time>
+	</li>
+
+	<li class="postlist-item">
+		<a href="/blog/firstpost/" class="postlist-link">This is my first post.</a>
+		<time class="postlist-date" datetime="2018-05-01">May 2018</time>
+	</li>
+
+</ol>
+
+
+
+		</main>
+
+		<footer></footer>
+
+		<!-- Current page: /blog/ -->
+	</body>
+</html>
