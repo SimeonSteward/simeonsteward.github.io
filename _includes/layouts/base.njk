@@ -46,7 +46,14 @@
 				{%- for entry in collections.all | eleventyNavigation %}
 					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
 				{%- endfor %}
+				<a href="https://github.com/SimeonSteward" style="padding: 5px">
+				  {% renderFile './_includes/assets/svg/github.svg.njk', { class: 'icon', title: 'Github Icon' } %}
+				</a>
+				<a href="https://linkedin.com/in/simeonsteward" style="padding: 5px">
+				  {% renderFile './_includes/assets/svg/linkedin.svg.njk', { class: 'icon', title: 'LinkedIn Icon' } %}
+				</a>
 				</ul>
+				
 			</nav>
 		</header>
 

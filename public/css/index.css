@@ -6,11 +6,11 @@
 
 /* Theme colors */
 :root {
-	--color-gray-20: #e0e0e0;
+	--color-gray-20: #BCC4DB;
 	--color-gray-50: #C0C0C0;
 	--color-gray-90: #333;
 
-	--background-color: #fff;
+	--background-color: #292929;
 
 	--text-color: var(--color-gray-90);
 	--text-color-link: #082840;
@@ -22,16 +22,16 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-gray-20: #e0e0e0;
+		--color-gray-20: #bcc4db;
 		--color-gray-50: #C0C0C0;
-		--color-gray-90: #dad8d8;
+		--color-gray-90: #bcc4db;
 
 		/* --text-color is assigned to --color-gray-_ above */
-		--text-color-link: #1493fb;
+		--text-color-link: #786CB2;
 		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;
+		--text-color-link-visited: #786CB2;
 
-		--background-color: #15202b;
+		--background-color: #292929;
 	}
 }
 
@@ -170,11 +170,25 @@ header {
 	display: inline-block;
 	margin-right: 1em;
 }
+.nav-item a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 .nav-item a[href]:not(:hover) {
 	text-decoration: none;
 }
 .nav a[href][aria-current="page"] {
 	text-decoration: underline;
+}
+
+.nav-item a.icon {
+  margin-left: 10px; 
+	padding: 10px; 
+}
+
+.nav-item a.icon:first-child {
+  margin-left: 0;
 }
 
 /* Posts list */
