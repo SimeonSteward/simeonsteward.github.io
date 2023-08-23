@@ -4,7 +4,7 @@
 	<subtitle>Simple Portfolio website to show off my projects</subtitle>
 	<link href="https://simeonsteward.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://simeonsteward.github.io/"/>
-	<updated>2023-09-08T00:00:00Z</updated>
+	<updated>2023-08-23T00:00:00Z</updated>
 	<id>https://simeonsteward.github.io/</id>
 	<author>
 		<name>Simeon Steward</name>
@@ -14,7 +14,7 @@
 	<entry>
 		<title>RIP Protocol Project</title>
 		<link href="https://simeonsteward.github.io/blog/rip_protocol/"/>
-		<updated>2023-09-08T00:00:00Z</updated>
+		<updated>2023-08-23T00:00:00Z</updated>
 		<id>https://simeonsteward.github.io/blog/rip_protocol/</id>
 		<content type="html">&lt;h1 id=&quot;implementing-the-rip-routing-protocol-in-python&quot; tabindex=&quot;-1&quot;&gt;Implementing the RIP Routing Protocol in Python &lt;a class=&quot;header-anchor&quot; href=&quot;https://simeonsteward.github.io/blog/rip_protocol/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;During my study abroad in New Zealand, one of my computer networking courses involved implementing the Routing Information Protocol (RIP) in Python. RIP is a distance-vector routing protocol used to exchange routing information between routers.&lt;/p&gt;
