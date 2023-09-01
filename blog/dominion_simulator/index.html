@@ -3,12 +3,179 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Simeon Steward</title>
-		<meta name="description" content="Simple Portfolio website to show off my projects">
+		<title>Dominion Simulator Project</title>
+		<meta name="description" content="Work in progress Strategy simulator for the deck building game Dominion">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Simeon Steward">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Simeon Steward">
 		
-		<style>.postlist { counter-reset: start-from 3 }
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -303,7 +470,7 @@ h2 + .header-anchor {
 			<nav>
 				<h2 class="visually-hidden">Top level navigation menu</h2>
 				<ul class="nav">
-					<li class="nav-item"><a href="/" aria-current="page">Home</a></li>
+					<li class="nav-item"><a href="/">Home</a></li>
 					<li class="nav-item"><a href="/blog/">Archive</a></li>
 					<li class="nav-item"><a href="/about/">About Me</a></li>
 				<a href="https://github.com/SimeonSteward" style="padding: 5px">
@@ -367,39 +534,69 @@ h2 + .header-anchor {
 
 		<main id="skip">
 			
+<h1>Dominion Simulator Project</h1>
 
+<ul class="post-metadata">
+	<li><time datetime="2023-08-29">29 August 2023</time></li>
+	<li><a href="/tags/second-tag/" class="post-tag">second tag</a></li>
+</ul>
 
-<h1>Latest 2 Posts</h1>
+<p>#Dominion
+I learned dominion at a fairly young age, and was highly competive in my teens. In 2018, I took fourth place in the world championship, and at one point for a couple of hours I was the highest rated player on the leaderboard. This passion for dominion has combined with my desire to write software and I began creating a dominion simulator.
+The idea behind this dominion simulator, is that the user can create two strategies, and the program will quickly simulate 10s of thousands of games between them to let the user know how much better a given strategy is compared to another. This project is not the first dominion simulator, and is inspired by Geronimoo's dominion simulator.
+Dominion is a deck builder created by Donald X. Vaccarino in 2009. Each game 10 cards are choosen from a massive pool of 366 cards. Because every game has different cards, strategies that exist on one kingdom simply don't exist in others because the cards are different. Because of this, it is helpful to know the relative strength of many different strategies. As a human who has played thousands of games, I have developed a decent intuition on what is good, but it is really helpful to have numbers to either back me up or change my mind so that people can become even better at dominion.</p>
+<h3 id="why-rust" tabindex="-1">Why Rust?? <a class="header-anchor" href="#why-rust">#</a></h3>
+<p>For this project, I choose to use rust because</p>
+<ul>
+<li>The type system is very expressive, allowing me to model dominion in a more complete way, and in a way that ensures that I implement functionality for every card of a type</li>
+<li>Memory safety is guaranteed</li>
+<li>Rust is fast</li>
+</ul>
+<h3 id="this-project-has-to-do-implement" tabindex="-1">This project has to do implement <a class="header-anchor" href="#this-project-has-to-do-implement">#</a></h3>
+<ul>
+<li>Game engine
+<ul>
+<li>Drawing, discarding, playing, buying, playing and trashing cards</li>
+<li>Manage player state</li>
+<li>Check game end conditions</li>
+</ul>
+</li>
+<li>Strategy
+<ul>
+<li>Buy strategy</li>
+<li>Play strategy</li>
+<li>Save and load strategies</li>
+<li>User create strategies</li>
+</ul>
+</li>
+<li>All 366 cards need to be implemented</li>
+</ul>
+<h3 id="extensions-to-this-project" tabindex="-1">Extensions to this project <a class="header-anchor" href="#extensions-to-this-project">#</a></h3>
+<ul>
+<li>User interface for ease of use</li>
+<li>Support to pit multiple strategies against each other to create a table of dominion strategies with their relative strengths</li>
+<li>Performance optimization</li>
+<li>Support to simulate strategies from a certain game state</li>
+<li>Support to auto create strategies
+<ul>
+<li>Auto pit them against each other</li>
+<li>Find best strategies for a kingdom</li>
+</ul>
+</li>
+</ul>
+<h3 id="progress" tabindex="-1">Progress <a class="header-anchor" href="#progress">#</a></h3>
+<p>I started this project in the June 2023, and have the basic game engine implemented, and am working on implementing user creating, loading and saving strategies.</p>
+<h3 id="lessons-learned" tabindex="-1">Lessons learned <a class="header-anchor" href="#lessons-learned">#</a></h3>
+<p>Rust has a very fussy compiler. This is both a good and a bad thing. On the bright side, because it is so fussy, when you get the code to pass the compiler, it usually works how you intend it to, another great feature of the compiler is that the error messages often tell you exactly what you need to do to fix the problem.
+One downside of rust is that borrow checker can make it hard to use reuse references that could be easily done in a garbage collected language, or a manual allocated language. This project has helped me learn to deal with the borrowed refrences and lifetimes. Rust's type system and match statements are really enjoyable to use and ensure that all cases of enums are handled which is a commonly used throughout the project.</p>
 
-
-
-
-<ol reversed class="postlist">
-
-	<li class="postlist-item">
-		<a href="/blog/dominion_simulator/" class="postlist-link">Dominion Simulator Project</a>
-		<time class="postlist-date" datetime="2023-08-29">August 2023</time>
-	</li>
-
-	<li class="postlist-item">
-		<a href="/blog/rip_protocol/" class="postlist-link">RIP Protocol Project</a>
-		<time class="postlist-date" datetime="2023-08-23">August 2023</time>
-	</li>
-
-</ol>
-
-
-
-
-
-
-
-
+<ul class="links-nextprev"><li>Previous: <a href="/blog/rip_protocol/">RIP Protocol Project</a></li>
+</ul>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- Current page: / -->
+		<!-- Current page: /blog/dominion_simulator/ -->
 	</body>
 </html>

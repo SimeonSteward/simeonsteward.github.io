@@ -4,12 +4,68 @@
 	<subtitle>Simple Portfolio website to show off my projects</subtitle>
 	<link href="https://simeonsteward.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://simeonsteward.github.io/"/>
-	<updated>2023-08-23T00:00:00Z</updated>
+	<updated>2023-08-29T00:00:00Z</updated>
 	<id>https://simeonsteward.github.io/</id>
 	<author>
 		<name>Simeon Steward</name>
 		<email></email>
 	</author>
+	
+	<entry>
+		<title>Dominion Simulator Project</title>
+		<link href="https://simeonsteward.github.io/blog/dominion_simulator/"/>
+		<updated>2023-08-29T00:00:00Z</updated>
+		<id>https://simeonsteward.github.io/blog/dominion_simulator/</id>
+		<content type="html">&lt;p&gt;#Dominion
+I learned dominion at a fairly young age, and was highly competive in my teens. In 2018, I took fourth place in the world championship, and at one point for a couple of hours I was the highest rated player on the leaderboard. This passion for dominion has combined with my desire to write software and I began creating a dominion simulator.
+The idea behind this dominion simulator, is that the user can create two strategies, and the program will quickly simulate 10s of thousands of games between them to let the user know how much better a given strategy is compared to another. This project is not the first dominion simulator, and is inspired by Geronimoo&#39;s dominion simulator.
+Dominion is a deck builder created by Donald X. Vaccarino in 2009. Each game 10 cards are choosen from a massive pool of 366 cards. Because every game has different cards, strategies that exist on one kingdom simply don&#39;t exist in others because the cards are different. Because of this, it is helpful to know the relative strength of many different strategies. As a human who has played thousands of games, I have developed a decent intuition on what is good, but it is really helpful to have numbers to either back me up or change my mind so that people can become even better at dominion.&lt;/p&gt;
+&lt;h3 id=&quot;why-rust&quot; tabindex=&quot;-1&quot;&gt;Why Rust?? &lt;a class=&quot;header-anchor&quot; href=&quot;https://simeonsteward.github.io/blog/dominion_simulator/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For this project, I choose to use rust because&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The type system is very expressive, allowing me to model dominion in a more complete way, and in a way that ensures that I implement functionality for every card of a type&lt;/li&gt;
+&lt;li&gt;Memory safety is guaranteed&lt;/li&gt;
+&lt;li&gt;Rust is fast&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;this-project-has-to-do-implement&quot; tabindex=&quot;-1&quot;&gt;This project has to do implement &lt;a class=&quot;header-anchor&quot; href=&quot;https://simeonsteward.github.io/blog/dominion_simulator/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Game engine
+&lt;ul&gt;
+&lt;li&gt;Drawing, discarding, playing, buying, playing and trashing cards&lt;/li&gt;
+&lt;li&gt;Manage player state&lt;/li&gt;
+&lt;li&gt;Check game end conditions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Strategy
+&lt;ul&gt;
+&lt;li&gt;Buy strategy&lt;/li&gt;
+&lt;li&gt;Play strategy&lt;/li&gt;
+&lt;li&gt;Save and load strategies&lt;/li&gt;
+&lt;li&gt;User create strategies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;All 366 cards need to be implemented&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;extensions-to-this-project&quot; tabindex=&quot;-1&quot;&gt;Extensions to this project &lt;a class=&quot;header-anchor&quot; href=&quot;https://simeonsteward.github.io/blog/dominion_simulator/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;User interface for ease of use&lt;/li&gt;
+&lt;li&gt;Support to pit multiple strategies against each other to create a table of dominion strategies with their relative strengths&lt;/li&gt;
+&lt;li&gt;Performance optimization&lt;/li&gt;
+&lt;li&gt;Support to simulate strategies from a certain game state&lt;/li&gt;
+&lt;li&gt;Support to auto create strategies
+&lt;ul&gt;
+&lt;li&gt;Auto pit them against each other&lt;/li&gt;
+&lt;li&gt;Find best strategies for a kingdom&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;progress&quot; tabindex=&quot;-1&quot;&gt;Progress &lt;a class=&quot;header-anchor&quot; href=&quot;https://simeonsteward.github.io/blog/dominion_simulator/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I started this project in the June 2023, and have the basic game engine implemented, and am working on implementing user creating, loading and saving strategies.&lt;/p&gt;
+&lt;h3 id=&quot;lessons-learned&quot; tabindex=&quot;-1&quot;&gt;Lessons learned &lt;a class=&quot;header-anchor&quot; href=&quot;https://simeonsteward.github.io/blog/dominion_simulator/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Rust has a very fussy compiler. This is both a good and a bad thing. On the bright side, because it is so fussy, when you get the code to pass the compiler, it usually works how you intend it to, another great feature of the compiler is that the error messages often tell you exactly what you need to do to fix the problem.
+One downside of rust is that borrow checker can make it hard to use reuse references that could be easily done in a garbage collected language, or a manual allocated language. This project has helped me learn to deal with the borrowed refrences and lifetimes. Rust&#39;s type system and match statements are really enjoyable to use and ensure that all cases of enums are handled which is a commonly used throughout the project.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>RIP Protocol Project</title>
