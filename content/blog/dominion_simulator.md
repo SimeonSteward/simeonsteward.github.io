@@ -2,7 +2,7 @@
 title: Dominion Simulator Project
 description: Work in progress Strategy simulator for the deck building game Dominion
 date: 2023-08-29
-tags: second tag
+tags: 
 ---
 # Dominion
 I learned dominion at a fairly young age, and was highly competive in my teens. In 2018, I took fourth place in the world championship, and at one point for a couple of hours I was the highest rated player on the leaderboard. This passion for dominion has combined with my desire to write software and I began creating a dominion simulator. 
