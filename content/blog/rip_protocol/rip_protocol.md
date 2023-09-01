@@ -2,7 +2,7 @@
 title: RIP Protocol Project
 description: Implementation of RIP Protocol created in collaboration with Adam Venroy
 date: 2023-08-23
-tags: second tag
+tags: 
 ---
 # Implementing the RIP Routing Protocol in Python
 
