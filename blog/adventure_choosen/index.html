@@ -3,12 +3,179 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Simeon Steward</title>
-		<meta name="description" content="Simple Portfolio website to show off my projects">
+		<title>Adventure Choosen Project</title>
+		<meta name="description" content="Social Media App to connect people with events">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Simeon Steward">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Simeon Steward">
 		
-		<style>.postlist { counter-reset: start-from 4 }
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -304,7 +471,7 @@ h2 + .header-anchor {
 				<h2 class="visually-hidden">Top level navigation menu</h2>
 				<ul class="nav">
 					<li class="nav-item"><a href="/">Home</a></li>
-					<li class="nav-item"><a href="/blog/" aria-current="page">Archive</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
 					<li class="nav-item"><a href="/about/">About Me</a></li>
 				<a href="https://github.com/SimeonSteward" style="padding: 5px">
 				  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -367,35 +534,40 @@ h2 + .header-anchor {
 
 		<main id="skip">
 			
-<h1>Archive</h1>
+<h1>Adventure Choosen Project</h1>
 
+<ul class="post-metadata">
+	<li><time datetime="2023-09-13">13 September 2023</time></li>
+</ul>
 
+<h1 id="adventure-choosen" tabindex="-1">Adventure Choosen <a class="header-anchor" href="#adventure-choosen">#</a></h1>
+<p>Have you ever moved to a new city, and wanted to start pursuing your hobbies, or wanted to see what events were going on with your friends. These are the usecases that the Adventure Choosen project created by my team for the Software Development Practices class. In this class, we made a Spring Boot backend paired with a java - android front end to make a compelling app to help connect people to events near them.
+We used a CI/CD pipeline that allowed us to get immediate feedback on the progress of our project, and thouroughly tested our code through both unit and integration testing. As a member of the backend team, I used Jakarta Persistence to manage data and store it in our mysql database.</p>
+<h2 id="structure" tabindex="-1">Structure <a class="header-anchor" href="#structure">#</a></h2>
+<p>To create Adventure Choosen, we had Users, Interests, and Events. Each of these entities had an associated image that was stored in a database file.
+Users could be friends with other Users, and Users had Interests.
+Events had Users who would be attending them, and would have an interest associated with them. Example:
+Name is Volleyball at the park, Location: Address of some park, Interest: Volleyball, Users Coming: (List Of Users Coming)</p>
+<pre><code>
+On the Users feed, Users would be recommended events based off of location, interests, friends who had already signed up.
+This would be ranked by the algorithm which is based off of previous behaviour, optimized for events that you are most likely to attend.
 
-<ol reversed class="postlist">
+After an event, You can rate the event which will help to optimize the algorithm for future recomendations
 
-	<li class="postlist-item">
-		<a href="/blog/adventure_choosen/" class="postlist-link">Adventure Choosen Project</a>
-		<time class="postlist-date" datetime="2023-09-13">September 2023</time>
-	</li>
+## Experienced Gained
+Through this project, I gained experience in working on a Team, Java - Springboot, Jakarta Persistance, Unit testing, Integration Testing, CI/CD.
+It also helped cement the project development process, going from just an idea to a functioning demo. This class reinforced my experience modeling data, as that was a huge part of the design decisions that I made.
 
-	<li class="postlist-item">
-		<a href="/blog/dominion_simulator/" class="postlist-link">Dominion Simulator Project</a>
-		<time class="postlist-date" datetime="2023-08-29">August 2023</time>
-	</li>
+If you have any questions about this project, feel free to reach out, my linkedin is at the top of the page!
+</code></pre>
 
-	<li class="postlist-item">
-		<a href="/blog/rip_protocol/" class="postlist-link">RIP Protocol Project</a>
-		<time class="postlist-date" datetime="2023-08-23">August 2023</time>
-	</li>
-
-</ol>
-
-
+<ul class="links-nextprev"><li>Previous: <a href="/blog/dominion_simulator/">Dominion Simulator Project</a></li>
+</ul>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- Current page: /blog/ -->
+		<!-- Current page: /blog/adventure_choosen/ -->
 	</body>
 </html>
