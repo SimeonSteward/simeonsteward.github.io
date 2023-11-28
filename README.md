@@ -1,5 +1,3 @@
-Here is a README customized for your portfolio website in plaintext markdown format:
-
 # Simeon's Portfolio
 
 This is Simeon Steward's personal portfolio website showcasing his projects and abilities as a developer. 
