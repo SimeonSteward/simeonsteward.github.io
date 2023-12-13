@@ -24,18 +24,13 @@ We used a CI/CD pipeline that allowed us to get immediate feedback on the progre
 Users could be friends with other Users, and Users had Interests.
 Events had Users who would be attending them, and would have an interest associated with them. Example:
 Name is Volleyball at the park, Location: Address of some park, Interest: Volleyball, Users Coming: (List Of Users Coming)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-On the Users feed, Users would be recommended events based off of location, interests, friends who had already signed up.
-This would be ranked by the algorithm which is based off of previous behaviour, optimized for events that you are most likely to attend.
-
-After an event, You can rate the event which will help to optimize the algorithm for future recomendations
-
-## Experienced Gained
-Through this project, I gained experience in working on a Team, Java - Springboot, Jakarta Persistance, Unit testing, Integration Testing, CI/CD.
-It also helped cement the project development process, going from just an idea to a functioning demo. This class reinforced my experience modeling data, as that was a huge part of the design decisions that I made.
-
-If you have any questions about this project, feel free to reach out, my linkedin is at the top of the page!
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On the Users feed, Users would be recommended events based off of location, interests, friends who had already signed up.
+This would be ranked by the algorithm which is based off of previous behaviour, optimized for events that you are most likely to attend.&lt;/p&gt;
+&lt;p&gt;After an event, You can rate the event which will help to optimize the algorithm for future recomendations&lt;/p&gt;
+&lt;h2 id=&quot;experienced-gained&quot; tabindex=&quot;-1&quot;&gt;Experienced Gained &lt;a class=&quot;header-anchor&quot; href=&quot;https://simeonsteward.github.io/blog/adventure_choosen/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Through this project, I gained experience in working on a Team, Java - Springboot, Jakarta Persistance, Unit testing, Integration Testing, CI/CD.
+It also helped cement the project development process, going from just an idea to a functioning demo. This class reinforced my experience modeling data, as that was a huge part of the design decisions that I made.&lt;/p&gt;
+&lt;p&gt;If you have any questions about this project, feel free to reach out, my linkedin is at the top of the page!&lt;/p&gt;
 </content>
 	</entry>
 	
