@@ -13,7 +13,7 @@ To create Adventure Choosen, we had Users, Interests, and Events. Each of these 
 Users could be friends with other Users, and Users had Interests.
 Events had Users who would be attending them, and would have an interest associated with them. Example: 
 Name is Volleyball at the park, Location: Address of some park, Interest: Volleyball, Users Coming: (List Of Users Coming)
-```
+
 
 On the Users feed, Users would be recommended events based off of location, interests, friends who had already signed up.
 This would be ranked by the algorithm which is based off of previous behaviour, optimized for events that you are most likely to attend.
